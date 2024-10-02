@@ -139,8 +139,9 @@ def Matrizes_Paralelo(m1, m2):
     return matriz
 
 
-resposta = input("Quer calcular com ajuste de TAP ou Compensão ( adicionar Reatores) para tensões em Z1, Z2 e Z3 seja igual, respectivamente, a 500kV, 230kV e 69kV?"
-                 "\nAjuste de TAP - digite 1 \nAjuste com Reatores - digite 2 \nNenhum - digite qualquer outro número\n ")
+resposta = input("Quer calcular com ajuste de TAP ou Compensão ( adicionar Reatores) para tensões em Z1, Z2 e Z3 seja igual
+", respectivamente, a 500kV, 230kV e 69kV?"
+ "\nAjuste de TAP - digite 1 \nAjuste com Reatores - digite 2 \nNenhum - digite qualquer outro número\n ")
 
 # Converte a resposta para inteiro
 try:
