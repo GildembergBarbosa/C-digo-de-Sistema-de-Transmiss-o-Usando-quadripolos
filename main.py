@@ -139,9 +139,8 @@ def Matrizes_Paralelo(m1, m2):
     return matriz
 
 
-resposta = input("Quer calcular com ajuste de TAP ou Compensão ( adicionar Reatores) para tensões em Z1, Z2 e Z3 seja igual
-", respectivamente, a 500kV, 230kV e 69kV?"
- "\nAjuste de TAP - digite 1 \nAjuste com Reatores - digite 2 \nNenhum - digite qualquer outro número\n ")
+resposta = input("Quer calcular com ajuste de TAP ou Compensão ( adicionar Reatores) para tensões em Z1, Z2 e Z3 seja igual, respectivamente, a 500kV, 230kV e 69kV?"
+                 "\nAjuste de TAP - digite 1 \nAjuste com Reatores - digite 2 \nNenhum - digite qualquer outro número\n ")
 
 # Converte a resposta para inteiro
 try:
@@ -231,12 +230,16 @@ if resposta == 1:
         absIz2, angIz2 = cmath.polar(Iz2)
         angVz2 = np.rad2deg(angVz2)
         angIz2 = np.rad2deg(angIz2)
-        vaVz1 = absVz1
-        vaVz2 = absVz2
-        vaVz3 = Vz3
+
         # Calculo de Perdas de Potência Ativa e Reativa
         S_totalcargas = Sz2 + Sz1 + Sz3
         S_perdas = Sac - S_totalcargas
+
+        # Variaveis para verificar no While
+        vaVz1 = absVz1
+        vaVz2 = absVz2
+        vaVz3 = Vz3
+
 
 
     print(f"T = {matriz8}")
@@ -370,6 +373,7 @@ elif resposta == 2:
         S_totalcargas = Sz2 + Sz1 + Sz3
         S_perdas = Sac - S_totalcargas
 
+        # Variaveis para verificar no While
         vaVz1 = absVz1
         vaVz2 = absVz2
         vaVz3 = Vz3
@@ -454,7 +458,7 @@ else:
     print(f"Iz3 = {absIz3:.2f} ∠ {angIz3:.2f}° V")
     matriz9 = [Vz3, Iz3]
     print(f"Iz3 = {Iz3} A")
-    print(f"Potência Ativa em Z3 = {Pz3:.2f}W\nPotência Reativa em Z3 = {Qz3:.2f}VAR")
+    print(f"Potência Ativa em Z3 = {Pz3:.2f}W\nPotência Reativa em Z3 = {Qz3:.2f}VAR\n")
     print("Tensão e corrente na entrada:")
     matrizentrada = Matrizes_Cascata(matriz8, matriz9)
     Vac = matrizentrada[0]
@@ -470,8 +474,8 @@ else:
     angIac = np.rad2deg(angIac)
     print(f"Vac = {absVac:.2f} ∠ {angVac:.2f}° V")
     print(f"Iac = {absIac:.2f} ∠ {angIac:.2f}° A")
-    print(f"Potência Ativa em Vac = {Pac:.2f}W\nPotência Reativa em Vac = {Qac:.2f}VAR")
-    print()
+    print(f"Potência Ativa em Vac = {Pac:.2f}W\nPotência Reativa em Vac = {Qac:.2f}VAR\n")
+
     # Parte 2: Encontrar V,I,P e Q em Z1
     print("Tensão e corrente na carga Z1:")
     Vz1 = (Vac * Z1) / (matriz2[0][0] * Z1 + matriz2[0][1])
@@ -487,7 +491,7 @@ else:
     angIz1 = np.rad2deg(angIz1)
     print(f"Vz1 = {absVz1:.2f}∠{angVz1:.2f}° V")
     print(f"Iz1 = {absIz1:.2f}∠{angIz1:.2f}° A")
-    print(f"Potência Ativa em Z1 = {Pz1:.2f}W\nPotência Reativa em Z1 = {Qz1:.2f}VAR")
+    print(f"Potência Ativa em Z1 = {Pz1:.2f}W\nPotência Reativa em Z1 = {Qz1:.2f}VAR\n")
 
     # Parte 3: Encontrar V,I,P e Q em Z2
     print("Tensão e corrente na carga Z2:")
@@ -504,7 +508,7 @@ else:
     angIz2 = np.rad2deg(angIz2)
     print(f"Vz2 = {absVz2:.2f}∠{angVz2:.2f}° V")
     print(f"Iz2 = {absIz2:.2f}∠{angIz2:.2f}° A")
-    print(f"Potência Ativa em Z2 = {Pz2:.2f}W\nPotência Reativa em Z2 = {Qz2:.2f}VAR")
+    print(f"Potência Ativa em Z2 = {Pz2:.2f}W\nPotência Reativa em Z2 = {Qz2:.2f}VAR\n")
     # Calculo de Perdas de Potência Ativa e Reativa
     S_totalcargas = Sz2 + Sz1 + Sz3
     S_perdas = Sac - S_totalcargas
